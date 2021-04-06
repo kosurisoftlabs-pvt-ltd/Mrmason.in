@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap 3 Show Many Slide One Carousel</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="assets/css/carslider.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Bitter" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/jquery.scrolling-tabs.css">
+  <link rel="stylesheet" href="assets/css/st-demo.css">
+<style>
+.one {
+    font-size: 16px;
+    color: #9a2220;
+    font-family: sans-serif;
+    }
+    .text1{
+   background: #9a2220;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 2px 8px;
+    font-family: monospace;
+    font-weight: 500;
+    letter-spacing: 0em;
+}
+#two{
+    border: 1.5px solid #f5f5f5;
+    border-radius: 4px;
+  }
+    #two:hover{
+    border: 1.5px solid #f5f5f5;
+    border-radius: 4px;
+       box-shadow: 0px 0px 10px #9d9d9d;
+    }
+ .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #ffffff;
+    cursor: default;
+    background-color: #a3d1f6;
+    border: 1px solid #a3d1f6;
+    border-bottom-color: transparent;
+    font-size: 17px;
+   /*  line-height:7px; */
+    font-family: monospace;
+    margin: 0 2px;
+} 
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(255, 255, 255, 0.5) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(255, 255, 255, 0.5)));
+    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(255, 255, 255, 0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+.carousel-control.left {
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.5) 0,rgba(0,0,0,.0001) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.5)),to(rgba(255, 255, 255, 0.0001)));
+    background-image: linear-gradient(to right,rgba(255, 255, 255, 0.5) 0,rgba(0,0,0,.0001) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+carousel-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 96%;
+    font-size: 20px;
+    color: #9a2220;
+    text-align: center;
+    text-shadow: 0 1px 2px rgb(154, 34, 32);
+    filter: alpha(opacity=50);
+    opacity: .5;
+} 
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 2px 13px;
+} 
+.scrtabs-tab-scroll-arrow {
+  border: 1px solid #fff;
+    border-top: none;
+    color: #18aedf;
+    display: none;
+    float: left;
+    font-size: 18px;
+    height: 31px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 5px;
+    width: 20px;
+}
+.scrtabs-tab-container {
+    height: 22px;
+}
+.nav-tabs {
+    border-bottom: 1px solid #ffffff;
+       margin: 0 0px; 
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    background: #eee;
+    color: #000;
+    font-family: monospace;
+     font-size: 17px; 
+   /*  line-height: 6px; */
+    margin: 0 2px;
+}
+a:focus, a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+.one1{
+    color: #9a2220;
+    text-decoration: none;
+    float: right;
+    margin: -3% 1%;
+    font-size: 23px;
+    }
+@media  (max-width:767px){
+.col-x-1 li{
+width:100%;
+text-align: center;
+margin-bottom: 5px;
+}
+.one1{
+    color: #9a2220;
+    text-decoration: none;
+      float: left;
+    margin: 0% 0%;
+    font-size: 23px;
+    }
+}
+</style> 
+
+</head>
+<body>
+<div class="containe">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#Honda" role="tab" data-toggle="tab"> Cement</a></li>
+      <li role="presentation"><a href="#TATA" role="tab" data-toggle="tab"> Iron</a></li>
+      <li role="presentation"><a href="#gravel" role="tab" data-toggle="tab"> Gravel</a></li>
+      <li role="presentation"><a href="#paints" role="tab" data-toggle="tab"> Paints</a></li>
+      <li role="presentation"><a href="#Ceramics" role="tab" data-toggle="tab"> Ceramics</a></li>
+      <li role="presentation"><a href="#Lighting" role="tab" data-toggle="tab"> Lighting</a></li>
+      <li role="presentation"><a href="#Plumbing" role="tab" data-toggle="tab"> Plumbing</a></li>
+      <li role="presentation"><a href="#Bricks" role="tab" data-toggle="tab"> Bricks</a></li>
+      <li role="presentation"><a href="#WoodenDoors" role="tab" data-toggle="tab"> Wooden Doors</a></li>
+      <li role="presentation"><a href="#WoodenWindow" role="tab" data-toggle="tab"> Wooden Window</a></li>
+    </ul>
+    
+  <div class="tab-content">
+   <!--============================ cement section ====================== -->
+    <div role="tabpanel" class="tab-pane active" id="Honda">
+      <h3></h3>
+       <div class="row">
+       <div class="col-md-12">
+       <div class="carousel carousel-showmanymoveone slide" id="carousel1231">
+       <div class="carousel-inner" >
+          <div class="item">
+          <div class="col-xs-12 col-sm-6 col-md-3 f">
+          <div id="two">
+          <a href="#"><img alt="service" src="images/cement1.jpg" class="img-responsive"></a>
+          <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Samrat</span></p>
+          </div>
+          </div>
+          </div></div>
+                 
+          <div class="item">
+          <div class="col-xs-12 col-sm-6 col-md-3 f">
+          <div id="two" >
+          <a href="#"><img alt="service" src="images/cement2.jpg" class="img-responsive"></a>
+          <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> KJS</span></p>
+          </div>
+          </div> </div></div>
+          
+          <div class="item">
+          <div class="col-xs-12 col-sm-6 col-md-3 f">
+          <div id="two">
+          <a href="#"><img alt="service" src="images/cement3.jpg" class="img-responsive"></a>
+          <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Bharathi</span></p>
+          </div>
+          </div></div></div>
+            
+          <div class="item">
+          <div class="col-xs-12 col-sm-6 col-md-3 f">
+          <div id="two">
+          <a href="#"><img alt="service" src="images/cement4.jpg" class="img-responsive"></a>
+          <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Sidhee</span></p>
+          </div>
+          </div></div></div>
+            
+          <div class="item">
+          <div class="col-xs-12 col-sm-6 col-md-3 f">
+          <div id="two">
+          <a href="#"><img alt="service" src="images/cement5.jpg" class="img-responsive"></a>
+          <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Maah</span></p>
+          </div>
+          </div></div></div>
+            
+          <div class="item active">
+          <div class="col-xs-12 col-sm-6 col-md-3 f" >
+          <div id="two">
+          <a href="#"><img alt="service" src="images/cement1.jpg" class="img-responsive"></a>
+          <div class="text3" style="background: #fff; font-size: 14px; padding:20px 5px 9px 7px;">
+          <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">   Samrat</span></p>
+          </div>
+          </div> </div></div>
+            
+         </div>
+         <a class="left carousel-control" href="#carousel1231" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+         <a class="right carousel-control" href="#carousel1231" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+         </div>
+         </div>
+         </div>
+          </div>
+    
+     <!--============================ end cement section ====================== -->
+    
+     <!--============================ Iorn section ====================== -->
+      <div id="TATA" class="tab-pane fade">
+        <h3></h3>
+        <div class="row">
+        <div class="col-md-12">
+        <div class="carousel carousel-showmanymoveone slide" id="carousel12">
+        <div class="carousel-inner" >
+        
+        <div class="item active">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/iron1.jpg" class="img-responsive"></a>
+        <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Iron</span></p>
+        </div>
+        </div>
+        </div></div>
+                 
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two" >
+        <a href="#"><img alt="service" src="images/iron2.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff;     padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Iron</span></p>
+        </div>
+        </div> </div></div>
+          
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/iron3.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Iron</span></p>
+        </div>
+        </div></div></div>
+           
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/iron4.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Iron</span></p>
+        </div>
+        </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/iron1.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Iron</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        <a class="left carousel-control" href="#carousel12" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel12" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+        </div>
+        </div>
+        </div>
+        </div>
+   <!--============================ end Iorn section ====================== --> 
+   
+   <!--============================ Gravel section ====================== -->
+   
+      <div id="gravel" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel124">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/gravel1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Gravel</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/gravel2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff;     padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Gravel</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/gravel3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Gravel</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/gravel4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Gravel</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/gravel1.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Gravel</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel124" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel124" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+      </div>
+    </div>
+     </div>
+    </div>
+   <!--============================ end Gravel section ====================== --> 
+   
+      <!--============================ Paints section ====================== -->
+   
+      <div id="paints" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel123">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/Paints1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Gravel</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/Paints2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff;     padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Paints</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/Paints3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Paints</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/Paints4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Paints</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/Paints1.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Paints</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel123" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel123" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+      </div>
+    </div>
+     </div>
+    </div>
+   <!--============================ end Paints section ====================== --> 
+       
+    <!--============================ Sands section ====================== -->
+   
+      <div id="Ceramics" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel1232">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/cre1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Ceramics</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/cre2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff;     padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Ceramics</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/cre3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Ceramics</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/cre4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Ceramics</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/cre1.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Ceramics</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel1232" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel1232" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+      </div>
+    </div>
+     </div>
+    </div>
+   <!--============================ end Sands section ====================== --> 
+   
+    <!--============================ Lighting section ====================== -->
+   
+      <div id="Lighting" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel12322">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/lig1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Lighting</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/lig2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff;     padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Lighting</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/lig3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Lighting</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/lig4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Lighting</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/lig1.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Lighting</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel12322" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel12322" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+      </div>
+      </div>
+     </div>
+    </div>
+   <!--============================ end Lighting section ====================== --> 
+   
+    <!--============================ Plumbing section ====================== -->
+   
+      <div id="Plumbing" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel123221">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/plu1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Plumbing</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/plu2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Plumbing</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/plu3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Plumbing</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/plu4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Plumbing</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/plu5.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Plumbing</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel123221" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel123221" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+       </div>
+       </div>
+       </div>
+       </div>
+   <!--============================ end Plumbing section ====================== --> 
+   
+     <!--============================ Bricks section ====================== -->
+   
+      <div id="Bricks" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel1232211">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/bri1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Bricks</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/bri2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Bricks</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/bri3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Bricks</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/bri4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Bricks</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/bri5.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Bricks</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel1232211" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel1232211" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+       </div>
+       </div>
+       </div>
+       </div>
+   <!--============================ end Bricks section ====================== --> 
+   
+   <!--============================ WoodenDoors section ====================== -->
+   
+      <div id="WoodenDoors" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel1232213">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/wd1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Doors</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/wd2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Doors</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/wd3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Doors</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/wd4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Doors</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/wd5.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;"> Wooden Doors</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel1232213" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel1232213" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+       </div>
+       </div>
+       </div>
+       </div>
+   <!--============================ end WoodenDoors section ====================== --> 
+   
+     <!--============================ #WoodenWindow section ====================== -->
+   
+      <div id="WoodenWindow" class="tab-pane fade">
+      <h3></h3>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel1232214">
+      <div class="carousel-inner" >
+      <div class="item active">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/ww1.jpg" class="img-responsive"></a>
+      <div class="text3" style=" background: #fff; padding: 20px 5px 9px 7px;font-size:14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Window</span></p>
+      </div>
+      </div>
+      </div></div>
+                 
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two" >
+      <a href="#"><img alt="service" src="images/ww2.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Window</span></p>
+      </div>
+      </div> </div></div>
+          
+      <div class="item">
+      <div class="col-xs-12 col-sm-6 col-md-3 f">
+      <div id="two">
+      <a href="#"><img alt="service" src="images/ww3.jpg" class="img-responsive"></a>
+      <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px; font-size: 14px;">
+      <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Window</span></p>
+      </div>
+      </div></div></div>
+            
+       <div class="item">
+       <div class="col-xs-12 col-sm-6 col-md-3 f">
+       <div id="two">
+       <a href="#"><img alt="service" src="images/ww4.jpg" class="img-responsive"></a>
+       <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+       <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Window</span></p>
+       </div>
+       </div></div></div>
+            
+        <div class="item">
+        <div class="col-xs-12 col-sm-6 col-md-3 f">
+        <div id="two">
+        <a href="#"><img alt="service" src="images/ww5.jpg" class="img-responsive"></a>
+        <div class="text3" style="background: #fff; padding: 20px 5px 9px 7px;font-size: 14px;">
+        <p style="text-align: center;"><span style="font-size:17px;color: #9a2220;">Brand :</span><span style="font-size: 17px;">  Wooden Window</span></p>
+        </div>
+        </div></div></div>
+        </div>
+        
+        <a class="left carousel-control" href="#carousel1232214" data-slide="prev"><i class="glyphicon glyphicon-chevron-left a"></i></a>
+        <a class="right carousel-control" href="#carousel1232214" data-slide="next"><i class="glyphicon glyphicon-chevron-right a"></i></a>
+       </div>
+       </div>
+       </div>
+       </div>
+   <!--============================ end WoodenWindow section ====================== --> 
+  </div>
+
+</div>
+  
+  
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'></script>
+<script src="assets/js/car.js"></script>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ <script src="assets/js/st-demo.js"></script>
+ <script src="assets/js/jquery.scrolling-tabs.js"></script>
+</body>
+</html>
